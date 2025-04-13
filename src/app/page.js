@@ -35,7 +35,6 @@ const Calculator = () => {
   const isOperator = (value) => ["+", "-", "*", "/", "%"].includes(value);
   const isDecimal = (value) => value === ".";
 
-
   const handleClick = (item) => {
     if (input.length === 0) {
       if (isOperator(item.value) && item.value !== "-") return; // Allow only negative sign as first character
@@ -44,7 +43,6 @@ const Calculator = () => {
     const lastChar = input[input.length - 1];
 
     if (isOperator(item.value) || isDecimal(item.value)) {
-
       if (lastChar === item.value) return; // Prevent duplicate operators/decimals
 
       if (lastChar === ".") {
@@ -105,10 +103,10 @@ const Calculator = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white">
-      <div className="flex flex-col items-center gap-6 bg-gray-200 w-80 p-6 rounded-xl shadow-lg">
+    <div className="flex items-center justify-center min-h-screen bg-black">
+      <div className="flex flex-col items-center gap-6 bg-gray-900 w-80 p-6 rounded-xl shadow-lg border border-gray-800">
         {/* Display Section */}
-        <section className="flex flex-col items-end justify-center bg-gray-300 h-24 w-full rounded-lg text-black px-4 py-2 shadow-inner">
+        <section className="flex flex-col items-end justify-center bg-gray-800 h-24 w-full rounded-lg text-white px-4 py-2 shadow-inner">
           <p className="text-xl opacity-70">{input || "0"}</p>
           <p className="text-3xl font-bold">{result || "0"}</p>
         </section>
@@ -121,22 +119,22 @@ const Calculator = () => {
               className={`flex items-center justify-center text-2xl font-medium w-16 h-16 rounded-lg transition-all 
                 ${
                   item.type === "number" || item.type === "decimal"
-                    ? "bg-gray-400 text-black hover:bg-gray-500 active:scale-90"
+                    ? "bg-gray-800 text-white hover:bg-gray-700 active:scale-90"
                     : ""
                 }
                 ${
                   item.type === "operator"
-                    ? "bg-blue-500 text-white hover:bg-blue-600 active:scale-90"
+                    ? "bg-gray-700 text-white hover:bg-gray-600 active:scale-90"
                     : ""
                 }
                 ${
                   item.type === "function"
-                    ? "bg-gray-500 text-white hover:bg-gray-600 active:scale-90"
+                    ? "bg-gray-600 text-white hover:bg-gray-500 active:scale-90"
                     : ""
                 }
                 ${
                   item.type === "equal"
-                    ? "col-span-2 w-full bg-blue-600 text-white hover:bg-blue-700 active:scale-90"
+                    ? "col-span-2 w-full bg-white text-black hover:bg-gray-200 active:scale-90"
                     : ""
                 }
               `}
